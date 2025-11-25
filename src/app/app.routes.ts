@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainComponent } from "./features/main/main.component/main.component";
 import {SandboxWinComponent} from "./features/sandbox.win.component/sandbox.win.component";
+import {objectResolver} from "./features/sandbox.win.component/object-resolver";
 
 export const routes: Routes = [
 
@@ -15,8 +16,10 @@ export const routes: Routes = [
                 component: SandboxWinComponent,
                 title: 'Sandbox',
                 outlet:'middle_split',
-                children:[
-                                    ]
+                resolve: {
+                    object: objectResolver,
+                },
+                children:[]
             },
         ]
     },
